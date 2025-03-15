@@ -1,0 +1,93 @@
+---
+/**
+ * * This is a section with four number cards that show some stats about the business.
+ * You can update the data below to change the stats.
+ */
+
+// components
+// import FeatureCardNumbers from "@components/FeatureCard/FeatureCardNumbers.astro";
+import FeatureCard from "@components/FeatureCard/FeatureCard.astro";
+import profileImage from "@images/bruno.jpg";
+import { Image } from "astro:assets";
+
+interface SkillsData {
+	largeText: string;
+	description: string;
+}
+
+// data
+// NOTE: You still need to manually update the heading that come before the cards
+const featureData: SkillsData[] = [
+	{
+		largeText: "Approccio olistico e personalizzato",
+		description: `Marco Sambrini combina tecniche olistiche, massoterapiche e sportive per offrire trattamenti su misura, adattati alle esigenze specifiche di ogni cliente, mirando al benessere totale di corpo e mente.`,
+	},
+	{
+		largeText: "20K",
+		description: `Photos Delivered`,
+	},
+	{
+		largeText: "310",
+		description: `Events Captured`,
+	},
+	{
+		largeText: "22",
+		description: `Locations`,
+	},
+];
+---
+
+<section id="features" class="bg-base-200 scroll-mt-10 py-8 md:py-12">
+	<div class="flex w-full items-center justify-center gap-3">
+		<div class="h-0.5 w-32 bg-black max-md:hidden"></div>
+		<h3 class="text-3xl uppercase max-md:text-center max-md:text-2xl">Le mie competenze</h3>
+		<div class="h-0.5 w-32 bg-black max-md:hidden"></div>
+	</div>
+	<div class="mx-auto grid max-w-7xl grid-cols-2 gap-4 p-2 max-md:w-full max-md:grid-cols-1">
+		{
+			featureData.map((feature, index) => (
+				<div class={`bg-primary-${index % 2 === 0 ? "100" : "500"}`}>
+					{/* <FeatureCard title={feature.largeText} description={feature.description} /> */}
+					TODO
+				</div>
+			))
+		}
+	</div>
+	<!-- <div
+		class="bg mx-auto flex max-w-6xl gap-4 px-4 max-md:flex-col max-md:justify-items-center md:justify-between"
+	>
+		<div
+			class="self-center border-2 border-amber-800 max-md:w-fit max-md:overflow-hidden max-md:rounded-full"
+		>
+			<Image
+				src={profileImage}
+				alt="Cosmic Themes logo"
+				loading="eager"
+				width={1067}
+				height={1600}
+				class="h-32 w-32 max-md:object-cover md:h-[500px] md:w-[300px]"
+			/>
+		</div>
+		<div class="flex h-full flex-1 flex-col gap-y-5">
+			<h3 class="text-3xl font-light uppercase max-md:text-center max-md:text-xl">
+				Massoterapista, massaggiatore e chinesiologo per il benessere totale
+			</h3>
+			<div class="h-0.5 w-20 bg-black max-md:w-full"></div>
+			<div class="">
+				Massaggiatore professionale specializzato in ambito olistico, tecnico sportivo e
+				massoterapico. Servizi personalizzati per favorire un rilassamento generale e ridurre i
+				livelli di stress, attraverso il riequilibrio ormonale e circolatorio. Massaggi
+				decontratturanti e defaticanti per alleviare tensioni muscolari e favorire il recupero
+				post-gara o post-allenamento, sia per atleti agonisti che amatoriali. Massaggi anticellulite
+				e linfodrenanti per il trattamento di edemi post-infortunio o ritenzione idrica, migliorando
+				l'estetica e la salute. Trattamenti massoterapici per alleviare dolori cronici localizzati,
+				come lombalgia, cervicalgia, spalle e arti, spesso derivanti da squilibri posturali o
+				posture lavorative forzate. Taping kinesiologico per fini drenanti, modellanti, tonificanti
+				e per accelerare la guarigione da infiammazioni e riparazione dei tessuti. Collaboro con
+				biologi nutrizionisti e laureati in Scienze Motorie per offrire percorsi integrati, mirati
+				al raggiungimento di obiettivi di ricomposizione corporea e miglioramento delle capacità
+				cardiocircolatorie, muscolari, di mobilità e flessibilità.
+			</div>
+		</div>
+	</div> -->
+</section>
