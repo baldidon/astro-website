@@ -18,11 +18,20 @@ const navConfig: navItem[] = [
 		link: "/",
 	},
 	{
-		text: "portfolios",
-		link: "/portfolio",
+		text: "Massaggi",
+		dropdown: [
+			{
+				text: "Massaggio Olistico",
+				link: "/massaggi/massaggio-olistico",
+			},
+			{
+				text: "Massaggio Antistress",
+				link: "/massaggi/massaggio-antistress",
+			},
+		],
 	},
 	{
-		text: "Pricing",
+		text: "Prezzi",
 		link: "/#pricing",
 	},
 	{

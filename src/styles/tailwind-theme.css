@@ -49,12 +49,16 @@
 	--breakpoint-2xl: 1536px;
 
 	/* font families */
+	--font-sans: "Inter", var(--font-serif);
 	--font-fallback: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica",
 		"Arial", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	--font-sans: "Work Sans Variable", var(--font-fallback);
+	--font-heading-1: "Inter", var(--font-serif);
+	--font-heading-2: "Inter", var(--font-fallback);
+	--font-decorative: "Inter", var(--font-serif);
+	/* --font-sans: "Work Sans Variable", var(--font-fallback);
 	--font-heading-1: "Playfair Display Variable", var(--font-serif);
 	--font-heading-2: "Raleway Variable", var(--font-fallback);
 	--font-decorative: "Cinzel Decorative", "Playfair Display Variable", var(--font-serif);
 	--font-mono: "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New",
-		"monospace";
+		"monospace"; */
 }
