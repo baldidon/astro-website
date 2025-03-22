@@ -6,16 +6,52 @@ import siteData from "@config/siteData.json";
 
 // images
 import logo from "@images/logo.png";
+import black_logo from "@images/logo_black.png";
+
+interface Props {
+	logoType?: "white" | "black"; // if set to "white", the nav elements will be white until the page is scrolled down. Useful for background hero images.
+	rest?: any; // catch-all for any additional parameters, such as "aria-label"
+}
+
+const { logoType, ...rest } = Astro.props as Props;
 ---
 
 <a class="primary-focus flex items-center align-middle" href="/" aria-label="Home" class="">
-	<Image
-		src={logo}
-		alt="Cosmic Themes logo"
-		loading="eager"
-		width={100}
-		height={100}
-		class="h-20 w-20"
-	/>
+	<div class="rounded">
+		<Image
+			src={logoType == "white" ? logo : black_logo}
+			alt="+Massage logo"
+			loading="eager"
+			width={300}
+			height={60}
+			class="h-10 w-52"
+			id="site-logo-image"
+		/>
+	</div>
 	<!-- <div class="font-heading-1 text-xl uppercase">{siteData.name}</div> -->
 </a>
+
+<script>
+	// CLIENT SIDE ONLY
+	// Importa le immagini (necessario per il client-side)
+	import logo from "/src/assets/images/logo.png";
+	import black_logo from "/src/assets/images/logo_black.png";
+
+	// Ascolta l'evento personalizzato "logoTypeChanged"
+	window.addEventListener("logoTypeChanged", (event) => {
+		// Ottieni il tipo di logo dall'evento
+		const customEvent = event as CustomEvent;
+		const newLogoType = customEvent.detail.type;
+
+		// Ottieni l'elemento dell'immagine
+		const logoImage = document.getElementById("site-logo-image");
+		if (logoImage) {
+			// Aggiorna l'immagine
+			if (newLogoType === "white") {
+				logoImage.setAttribute("src", logo.src);
+			} else {
+				logoImage.setAttribute("src", black_logo.src);
+			}
+		}
+	});
+</script>

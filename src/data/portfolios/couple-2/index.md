@@ -1,7 +1,7 @@
 ---
-title: A beachside celebration
-description: The sandy shores, kissed by gentle waves, provided a serene backdrop for your beach wedding.
-heroImage: ./couple-3-square.jpg
+title: Massaggio decontratturante
+description: Per alleviare tensioni muscolari e migliorare la mobilità
+heroImage: ./massaggio_decontratturante.jpg
 date: "Jun 12 2024"
 location: Miami, Florida
 clients: [Alex, Jeff]
@@ -15,4 +15,8 @@ images:
 order: 2
 ---
 
-This Malibu wedding was a breathtaking affair. The stunning mountain views provided a picturesque backdrop. The photographs beautifully captured the intimate moments, the vibrant energy, and the overall romantic ambiance of the day.
+Il massaggio decontratturante è un trattamento terapeutico mirato che lavora in profondità sui tessuti muscolari per sciogliere contratture e nodi. Questa tecnica utilizza pressioni e manipolazioni specifiche per ridurre la tensione accumulata, migliorare la circolazione sanguigna e ripristinare la corretta funzionalità muscolare.
+
+Particolarmente efficace per chi soffre di dolori cronici, stress posturale o affaticamento muscolare, il massaggio decontratturante offre benefici immediati e duraturi. Dopo la seduta, i clienti sperimentano un significativo sollievo dalla rigidità, maggiore flessibilità e una sensazione generale di benessere.
+
+Ogni trattamento viene personalizzato in base alle esigenze specifiche del cliente, concentrandosi sulle aree che presentano maggiore tensione.

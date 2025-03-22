@@ -1,7 +1,7 @@
 ---
-title: A high-class affair
-description: Relive the elegance of your venue and the grandeur of your wedding through artistic photography.
-heroImage: ./couple-4-square.jpg
+title: Trattamenti olistici
+description: Tecniche per riequilibrare corpo e mente, ridurre lo stress e migliorare.
+heroImage: ./trattamento_olistico.jpg
 date: "Apr 15 2024"
 location: Houston, Texas
 clients: [Julia, David]
@@ -15,4 +15,6 @@ images:
 order: 3
 ---
 
-This Malibu wedding was a breathtaking affair. The stunning mountain views provided a picturesque backdrop. The photographs beautifully captured the intimate moments, the vibrant energy, and the overall romantic ambiance of the day.
+I trattamenti olistici rappresentano un approccio completo al benessere della persona, considerando l'individuo nella sua totalità: corpo, mente e spirito. Queste tecniche, che includono massaggi, meditazione, aromaterapia e altre pratiche naturali, mirano a ristabilire l'equilibrio energetico e promuovere l'autoguarigione.
+
+Ogni trattamento è personalizzato sulle specifiche esigenze del cliente, creando un percorso unico di benessere che aiuta a ridurre lo stress, alleviare tensioni muscolari, migliorare la qualità del sonno e aumentare la consapevolezza corporea. L'obiettivo finale è quello di armonizzare tutti gli aspetti dell'essere, portando a una sensazione di benessere profondo e duraturo.

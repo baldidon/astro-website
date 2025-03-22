@@ -7,11 +7,11 @@
 import { Image } from "astro:assets";
 
 // components
-import Button from "@components/Button/Button.astro";
+// import Button from "@components/Button/Button.astro";
 
 // images
 import heroImage from "@images/hero-bg-crop.jpg";
-import heroImageMobile from "@images/hero-bg-min.jpg";
+// import heroImageMobile from "@images/hero-bg-min.jpg";
 ---
 
 <section id="hero" class="relative z-10 flex min-h-[100lvh] w-full">
@@ -21,7 +21,7 @@ import heroImageMobile from "@images/hero-bg-min.jpg";
 
 		<Image
 			src={heroImage}
-			class="hidden h-auto min-h-full w-full object-cover object-bottom blur-sm sm:block"
+			class="hidden h-auto min-h-full w-full scale-105 object-cover object-bottom blur-xs sm:block"
 			alt="wedding"
 			aria-hidden="true"
 			loading="eager"
@@ -29,7 +29,7 @@ import heroImageMobile from "@images/hero-bg-min.jpg";
 		/>
 		<Image
 			src={heroImage}
-			class="h-auto min-h-full w-full object-cover blur-sm sm:hidden"
+			class="h-auto min-h-full w-full scale-105 object-cover blur-xs sm:hidden"
 			alt="wedding"
 			aria-hidden="true"
 			loading="eager"
@@ -46,13 +46,12 @@ import heroImageMobile from "@images/hero-bg-min.jpg";
 			<h1
 				class="font-heading-1 w-fit text-center text-5xl font-semibold drop-shadow-[0_2px_2px_rgba(0,0,0,0.4)] md:text-7xl md:leading-tight"
 			>
-				Il tuo benessere <br />è la priorità
+				L'arte del benessere <br />e della performance
 			</h1>
-			<p
-				class="mt-8 text-lg tracking-widest text-pretty drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)] md:max-w-[550px] md:text-xl"
-			>
-				+Massage di Bruno Asllani
+			<p class="mt-8 text-lg drop-shadow-[0_2px_2px_rgba(0,0,0,0.4)] md:max-w-[550px] md:text-2xl">
+				Questo è +Massage
 			</p>
+
 			<!-- <div class="mt-10 flex flex-wrap justify-center gap-4 md:justify-start">
 				<Button
 					variant="ghost"

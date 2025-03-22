@@ -17,17 +17,17 @@ const navConfig: navItem[] = [
 		text: "Home",
 		link: "/",
 	},
-	{ text: "Chi sono", link: "/#presentation" },
+	// { text: "Chi sono", link: "/#presentation" },
 	{
 		text: "Massaggi",
 		dropdown: [
 			{
-				text: "Massaggio Olistico",
+				text: "Massaggi Olistici",
 				link: "/massaggi/massaggio-olistico",
 			},
 			{
-				text: "Massaggio Antistress",
-				link: "/massaggi/massaggio-antistress",
+				text: "Massaggi Tecnici",
+				link: "/massaggi/massaggio-tecnico",
 			},
 		],
 	},

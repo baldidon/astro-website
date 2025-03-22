@@ -16,6 +16,8 @@ interface Props {
 }
 
 const { startStyle = "default", rest } = Astro.props as Props;
+const currentUrl = Astro.url.pathname; // get the current URL path name
+let siteLogoType: "white" | "black" = currentUrl.endsWith("portfolio") ? "black" : "white";
 ---
 
 <div
@@ -28,8 +30,8 @@ const { startStyle = "default", rest } = Astro.props as Props;
 		<div class="site-container flex h-16 w-full items-center">
 			<header class="flex w-full items-center gap-2">
 				<!-- home button / image -->
-				<div class="flex flex-auto justify-start">
-					<SiteLogo />
+				<div class="flex flex-auto justify-start" id="logo-container">
+					<SiteLogo logoType={siteLogoType} />
 				</div>
 
 				<!-- desktop nav menu -->
@@ -51,6 +53,7 @@ const { startStyle = "default", rest } = Astro.props as Props;
 						</ul>
 					</nav>
 					<!-- Button -->
+
 					<!-- <Button
 						variant="secondary"
 						class=`nav__cta py-1 my-auto hidden md:block ${startStyle === "white" ? "data-[scrolled=true]:border-primary-200 data-[scrolled=true]:hover:border-primary-200/80" : "border-primary-200"}`
@@ -71,20 +74,33 @@ const { startStyle = "default", rest } = Astro.props as Props;
 </div>
 
 <script>
+	// per essere eseguito lato client
 	let navbar: HTMLElement | null;
 	let navCTA: HTMLElement | null;
+	let siteLogo: HTMLElement | null;
+	let currentURL: string = window.location.pathname; // get the current URL path name
 
 	function scrollHandler() {
+		const shouldEmitLogoChangedEvent = !currentURL.endsWith("portfolio");
+		console.log("shouldEmitLogoChangedEvent", shouldEmitLogoChangedEvent);
+
 		if (navbar) {
 			if (window.scrollY > 50) {
 				// if we have scrolled down the page a bit, adjust colors
 				navbar.classList.add("scrolled");
 				navbar.classList.remove("initial");
 				navCTA?.setAttribute("data-scrolled", "true");
+				siteLogo?.setAttribute("logoType", "black");
+				if (shouldEmitLogoChangedEvent) {
+					emitLogoChangedEvent("black");
+				}
 			} else {
 				navbar.classList.add("initial");
 				navbar.classList.remove("scrolled");
 				navCTA?.setAttribute("data-scrolled", "false");
+				if (shouldEmitLogoChangedEvent) {
+					emitLogoChangedEvent("white");
+				}
 			}
 		}
 	}
@@ -92,7 +108,16 @@ const { startStyle = "default", rest } = Astro.props as Props;
 	function initNav() {
 		navbar = document.getElementById("nav__container");
 		navCTA = navbar?.querySelector(".nav__cta") as HTMLElement;
+		siteLogo = navbar?.querySelector(".site-logo") as HTMLElement;
 		window.addEventListener("scroll", scrollHandler, { passive: true });
+	}
+
+	function emitLogoChangedEvent(logoType: "black" | "white") {
+		window.dispatchEvent(
+			new CustomEvent("logoTypeChanged", {
+				detail: { type: logoType },
+			}),
+		);
 	}
 
 	// runs on initial page load
