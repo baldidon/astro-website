@@ -1,6 +1,6 @@
 ---
-title: JOSÉ & MELANIE
-testimonial: Jenna has a way of making us feel like the only people in the room. The photos she delivered were beyond our expectations, capturing the joy, love, and beauty of our special day in a way that we will treasure forever.
-image: ./couple-8-crop.jpg
+title: MARCO
+testimonial: Dopo anni di sport a livello intenso, avevo spesso dolori alla schiena che rallentavano i miei allenamenti. I massaggi di Bruno hanno fatto davvero la differenza; già dopo poche sedute ho ritrovato mobilità e sollievo. Consiglio la sua professionalità a chiunque voglia prendersi cura del proprio corpo
+image: ./marco.jpg
 order: 1
 ---

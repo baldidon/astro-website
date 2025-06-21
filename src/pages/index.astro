@@ -8,7 +8,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero/Hero.astro";
 import PortfolioThreeCards from "@components/Portfolio/PortfolioThreeCards.astro";
 import Testimonials from "@components/Testimonials/Testimonials.astro";
-import PricingThreeCards from "@components/Pricing/PricingThreeCards.astro";
 import About from "@components/About/About.astro";
 import Contact from "@components/Contact/Contact.astro";
 import Button from "@components/Button/Button.astro";
@@ -17,15 +16,19 @@ import Button from "@components/Button/Button.astro";
 import siteData from "@config/siteData.json";
 import Presentation from "@components/Presentation/Presentation.astro";
 import Features from "@components/Features/Features.astro";
+import MapLocation from "@components/MapLocation/MapLocation.astro";
+import Location from "@components/Location/Location.astro";
+import PromotionThreeCards from "@components/Promotions/PromotionThreeCards.astro";
 ---
 
 <BaseLayout title={siteData.title} description={siteData.description} navStartStyle="white">
 	<Hero />
 	<Presentation />
-	<Features />
+	<!-- <Features /> -->
 	<PortfolioThreeCards />
 	<Testimonials />
-	<PricingThreeCards />
-	<About />
+	<PromotionThreeCards />
+
+	<Location />
 	<Contact />
 </BaseLayout>

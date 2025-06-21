@@ -1,6 +1,6 @@
 ---
-title: BRIAN & KEVIN
-testimonial: Jenna was always available to answer our questions, offer recommendations, and ensure that everything ran smoothly. Her dedication to capturing our love story was evident in every shot, and we are grateful for her beautiful work.
-image: ./couple-7-crop.jpg
+title: SOFIA
+testimonial: Dopo lunghi turni in piedi, arrivavo a fine giornata con gambe pesanti e mal di schiena costante. Grazie ai trattamenti di Bruno, ho trovato finalmente sollievo; le tensioni si sciolgono, la circolazione migliora e mi sento davvero più leggera. È diventato il mio appuntamento fisso per ricaricare corpo e mente.
+image: ./sofia.jpg
 order: 1
 ---

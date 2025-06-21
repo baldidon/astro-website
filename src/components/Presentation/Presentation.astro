@@ -20,36 +20,42 @@ interface FeatureCardData {
 		class="bg mx-auto flex max-w-6xl gap-4 px-4 max-md:flex-col max-md:justify-items-center md:justify-between"
 	>
 		<div
-			class="self-center border-2 border-amber-800 max-md:w-fit max-md:overflow-hidden max-md:rounded-full"
+			class="border-base-200 max-md:border-base-300 border max-md:w-fit max-md:flex-initial max-md:self-center max-md:overflow-hidden max-md:rounded-full"
 		>
 			<Image
 				src={profileImage}
 				alt="Cosmic Themes logo"
 				loading="eager"
-				width={1067}
-				height={1600}
-				class="h-32 w-32 max-md:object-contain md:h-[300px] md:w-[200px]"
+				width={600}
+				height={680}
+				class="h-40 w-40 max-md:object-cover md:h-full md:w-[350px]"
 			/>
 		</div>
 		<div class="flex h-full flex-1 flex-col gap-y-5">
-			<h3 class="text-3xl uppercase max-md:text-center max-md:text-xl">
-				Bruno Asllani – Massaggio Sportivo & Operatore Olistico
-			</h3>
-			<div class="h-0.5 w-20 bg-black max-md:w-full"></div>
+			<div class="flex flex-col gap-2">
+				<h2 class="text-3xl uppercase max-md:text-center max-md:text-2xl">Bruno Asllani</h2>
+				<h4 class="max-md:text-md uppercase max-md:text-center md:text-xl">
+					Massaggiatore Sportivo & Operatore Olistico
+				</h4>
+			</div>
+			<div class="bg-base-600 h-0.5 w-20 max-md:w-full"></div>
 			<div class="flex flex-col gap-5 max-md:justify-items-center">
-				<div>
-					Mi chiamo Bruno Asllani e la mia passione per il massaggio nasce in età adolescenziale,
-					quando praticavo sport a livello agonistico.
+				<div class="bg-base-800/10 p-3">
+					Il mio percorso nel mondo del massaggio è cominciato quando ero atleta agonista. Dopo ogni
+					allenamento e gara, ho imparato quanto fosse fondamentale <b
+						>prendersi cura del proprio corpo</b
+					>
+					per recuperare al meglio e prevenire infortuni.
 				</div>
-				<div>
-					Ho sperimentato in prima persona l’importanza del recupero fisico e mentale per migliorare
-					le prestazioni e prevenire gli infortuni. Da questa esperienza è nata la mia vocazione per
-					il massaggio sportivo e il benessere olistico.
+				<div class="bg-base-800/10 p-3">
+					Quelle esperienze non solo hanno rafforzato la mia passione per lo sport, ma hanno acceso
+					in me il <b>desiderio di aiutare gli altri a sentirsi meglio</b>
 				</div>
-				<div>
-					Oggi, come operatore specializzato, metto a disposizione le mie competenze per aiutare
-					atleti, sportivi e chiunque voglia ritrovare equilibrio e benessere attraverso trattamenti
-					mirati.
+				<div class="bg-base-800/10 p-3">
+					Oggi sono un operatore specializzato in massaggio sportivo e benessere olistico. Unisco
+					tecnica, ascolto e sensibilità per creare <b>trattamenti personalizzati</b>, pensati per
+					favorire il recupero fisico, rilassare la mente e ritrovare equilibrio. Lavoro con atleti,
+					sportivi amatoriali e chiunque desideri prendersi cura di sé in modo consapevole.
 				</div>
 			</div>
 		</div>

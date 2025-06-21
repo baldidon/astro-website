@@ -26,7 +26,7 @@ const { title, description, heroImage } = portfolio.data;
 		},
 	]}
 >
-	<a href={`/portfolio/${portfolio.id}`} class="aspect-square overflow-hidden">
+	<a href={`/massage/${portfolio.id}`} class="aspect-square overflow-hidden">
 		{
 			noTransitions && (
 				<Image
@@ -51,14 +51,22 @@ const { title, description, heroImage } = portfolio.data;
 			)
 		}
 	</a>
-	<div class="flex flex-col justify-between gap-2">
-		<div>
+	<div class="flex flex-col justify-between gap-2 max-md:items-center">
+		<div class="w-full max-md:text-center">
 			<h3 class="h3 text-primary-500 tracking-widest">{title}</h3>
 			<p class="mt-4 lg:text-lg">{description}</p>
 		</div>
 		<div class="flex">
-			<Button variant="ghost" arrow="right" href={`/portfolio/${portfolio.id}`} class="pl-0">
-				Approfondisci
+			<Button
+				variant="outline"
+				arrow="right"
+				href={`/massage/${portfolio.id}`}
+				class="max-md:hidden"
+			>
+				MAGGIORI DETTAGLI
+			</Button>
+			<Button variant="primary" arrow="none" href={`/massage/${portfolio.id}`} class="md:hidden">
+				MAGGIORI DETTAGLI
 			</Button>
 		</div>
 	</div>

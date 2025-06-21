@@ -1,0 +1,64 @@
+---
+// Questo componente carica e visualizza una mappa Leaflet
+
+const {
+	lat = 43.34947739851581,
+	lng = 12.578185021304732,
+	zoom = 100,
+	height = "400px",
+} = Astro.props;
+---
+
+<!-- <div class="flex w-full items-center"> -->
+<div id="map" style={`height: ${height};`} class=""></div>
+<link
+	rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+	integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+	crossorigin=""
+/>
+<!-- </div> -->
+
+<script>
+	const defaultProps = {
+		lat: 43.34947739851581,
+		lng: 12.578185021304732,
+		zoom: 100,
+		height: "400px",
+	};
+	// Importa Leaflet solo lato client
+	import L from "leaflet";
+
+	// Crea la mappa solo dopo che il DOM è completamente caricato
+	document.addEventListener("DOMContentLoaded", () => {
+		// Accedi alle proprietà dall'attributo dataset
+		const mapElement = document.getElementById("map");
+		const lat = parseFloat(mapElement!.dataset.lat || defaultProps.lat.toString());
+		const lng = parseFloat(mapElement!.dataset.lng || defaultProps.lng.toString());
+		const zoom = parseInt(mapElement!.dataset.zoom || defaultProps.zoom.toString());
+
+		// Inizializza la mappa
+		const map = L.map("map").setView([lat, lng], zoom);
+
+		// Aggiungi il layer di OpenStreetMap
+		L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+			attribution:
+				'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		}).addTo(map);
+
+		// Aggiungi un marker alla posizione indicata
+		L.marker([lat, lng]).addTo(map);
+
+		// Correggi il problema di dimensioni della mappa quando viene caricata
+		setTimeout(() => {
+			map.invalidateSize();
+		}, 100);
+	});
+</script>
+
+<!-- <script is:inline>
+	// Passa i dati dal server al client tramite dataset
+	document.getElementById("map").dataset.lat = "${lat}";
+	document.getElementById("map").dataset.lng = "${lng}";
+	document.getElementById("map").dataset.zoom = "${zoom}";
+</script> -->
