@@ -84,4 +84,13 @@
 	.rotate-180 {
 		@apply rotate-180;
 	}
+
+	/* hide horizontal scrollbar while keeping scroll functionality */
+	.scrollbar-hide {
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* IE 10+ */
+	}
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none; /* Chrome/Safari */
+	}
 }

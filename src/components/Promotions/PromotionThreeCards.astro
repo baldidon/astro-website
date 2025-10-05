@@ -57,12 +57,14 @@ const pricingData: pricingItem[] = [
 		<h2 class="h2 text-pretty uppercase">Le nostre promozioni</h2>
 	</div>
 
-	<!-- works for 3 pricing plans, adjust grid cols here to support more or less -->
-	<div class="mx-auto grid gap-12 pt-8 sm:max-w-6xl sm:grid-cols-1 md:pt-12 lg:grid-cols-3">
+	<!-- works for 3 pricing plans; on mobile enable horizontal snap scroll -->
+	<div class="mx-auto flex gap-4 overflow-x-auto snap-x snap-mandatory pt-8 sm:max-w-6xl md:pt-12 lg:grid lg:grid-cols-3 lg:gap-12 lg:overflow-visible relative -mx-4 px-4 scrollbar-hide"
+		style="-webkit-overflow-scrolling: touch;"
+	>P
 		{
 			pricingData.map((plan) => (
 				<div
-					class="flex w-full flex-col"
+					class="flex w-full flex-col shrink-0 snap-start min-w-[85%] sm:min-w-[70%] md:min-w-[60%] lg:min-w-0 lg:shrink"
 					class:list={[
 						{
 							"bg-primary-200": plan.featured === true,
@@ -104,6 +106,33 @@ const pricingData: pricingItem[] = [
 			))
 		}
 	</div>
+
+	<!-- mobile-only hint to indicate horizontal scrolling -->
+	<div class="mt-3 flex items-center justify-center gap-2 text-sm text-base-700 lg:hidden">
+		<Icon name="tabler:arrow-narrow-right" class="h-4 w-4 animate-bounce-x-slow motion-reduce:animate-none" />
+		<span>Scorri per vedere altre promozioni</span>
+	</div>
+
+	<style>
+		@keyframes bounce-x-slow {
+			0%, 100% {
+				transform: translateX(0);
+			}
+			50% {
+				transform: translateX(6px);
+			}
+		}
+
+		.animate-bounce-x-slow {
+			animation: bounce-x-slow 2.5s ease-in-out infinite;
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.animate-bounce-x-slow {
+				animation: none;
+			}
+		}
+	</style>
 
 	<!-- <div class="mt-12 flex justify-center">
 		<Button href="/#contact" variant="outline" class="px-8">Get a quote</Button>
