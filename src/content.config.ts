@@ -14,15 +14,15 @@ const portfolios = defineCollection({
 			title: z.string(),
 			description: z.string(),
 			heroImage: image(),
-			clients: z.array(z.string()),
-			location: z.string(),
+			// clients: z.array(z.string()),
+			// location: z.string(),
 			images: z.array(
 				z.array(image()).refine((arr) => [1, 2, 3].includes(arr.length), {
 					message: "Each sub-array must contain 1, 2, or 3 items",
 				}),
 			),
 			// Transform string to Date object
-			date: z.coerce.date(),
+			// date: z.coerce.date(),
 			order: z.number(),
 			// will be excluded from build if draft is "true"
 			draft: z.boolean().optional(),
