@@ -8,6 +8,7 @@
 // import FeatureCardNumbers from "@components/FeatureCard/FeatureCardNumbers.astro";
 import profileImage from "@images/bruno.jpg";
 import { Image } from "astro:assets";
+import Certifications from "@components/Certifications/Certifications.astro";
 
 interface FeatureCardData {
 	largeText: string;
@@ -20,15 +21,15 @@ interface FeatureCardData {
 		class="bg mx-auto flex max-w-6xl gap-4 px-4 max-md:flex-col max-md:justify-items-center md:justify-between"
 	>
 		<div
-			class="border-base-200 max-md:border-base-300 border max-md:w-fit max-md:flex-initial max-md:self-center max-md:overflow-hidden max-md:rounded-full"
+			class="border-base-200 max-md:border-base-300 border max-md:w-fit max-md:flex-initial max-md:self-center max-md:overflow-hidden max-md:rounded-full md:self-center"
 		>
 			<Image
 				src={profileImage}
-				alt="Cosmic Themes logo"
+				alt="Bruno Asllani"
 				loading="eager"
 				width={600}
-				height={680}
-				class="h-40 w-40 max-md:object-cover md:h-full md:w-[350px]"
+				height={600}
+				class="h-40 w-40 max-md:object-cover md:h-auto md:w-[350px] md:object-cover"
 			/>
 		</div>
 		<div class="flex h-full flex-1 flex-col gap-y-5">
@@ -56,22 +57,9 @@ interface FeatureCardData {
 					tecnica, ascolto e sensibilità per creare <b>trattamenti personalizzati</b>, pensati per
 					favorire il recupero fisico, rilassare la mente e ritrovare equilibrio. Lavoro con atleti,
 					sportivi amatoriali e chiunque desideri prendersi cura di sé in modo consapevole.
-				</div>
-			</div>
 		</div>
-		<!-- <div class="text-prety mr-auto text-center">
-			<h2 class="h2">Capture your love story with an experienced, client centered photographer</h2>
-		</div>
-
-		<div
-			id="feature-numbers-cards"
-			class="mt-6 grid gap-10 gap-y-16 sm:grid-cols-2 md:mt-12 lg:grid-cols-4"
-		>
-			{
-				featureData.map((feature, idx) => (
-					<FeatureCardNumbers largeText={feature.largeText} description={feature.description} />
-				))
-			}
-		</div> -->
 	</div>
 </section>
+
+<!-- Certifications Carousel -->
+<Certifications />

@@ -6,23 +6,62 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 // components
 import Contact from "@components/Contact/Contact.astro";
-import PortfolioGrid from "@components/Portfolio/PortfolioGrid.astro";
+import MassageCard from "@components/MassageCard/MassageCard.astro";
 import TestimonialQuote from "@components/Testimonials/TestimonialQuote.astro";
 
 const portfolios = await getCollection("portfolios", ({ data }) => {
 	// filter out draft pages
 	return data.draft !== true;
 });
+
+// Massage data
+const massageData = [
+	{
+		title: "Massaggio Tecnico",
+		description: "Trattamento mirato per risolvere tensioni muscolari e problemi specifici. Ideale per atleti e chi soffre di dolori cronici.",
+		price: "€60",
+		image: "placeholder",
+		href: "/massage/massaggio-tecnico"
+	},
+	{
+		title: "Massaggio Olistico",
+		description: "Approccio completo che unisce mente e corpo. Perfetto per rilassamento profondo e riequilibrio energetico.",
+		price: "€55",
+		image: "placeholder",
+		href: "/massage/massaggio-olistico"
+	},
+	{
+		title: "Massaggio Sportivo",
+		description: "Preparazione atletica e recupero post-allenamento. Tecnica specifica per sportivi amatoriali e professionisti.",
+		price: "€65",
+		image: "placeholder",
+		href: "/massage/massaggio-sportivo"
+	}
+];
 ---
 
-<BaseLayout title="Portfolios" description="Portfolio page for my projects and work.">
+<BaseLayout title="Massaggi" description="Scopri i nostri massaggi professionali per il tuo benessere.">
 	<div class="site-container pt-24 md:pt-36">
 		<div class="mx-auto max-w-6xl text-center">
 			<h1 class="h2 text-pretty uppercase">
-				The moments you'll want to relive in a timeless, romantic, and artistic style.
+				I nostri massaggi professionali per il tuo benessere
 			</h1>
 		</div>
-		<PortfolioGrid portfolios={portfolios} />
+		
+		<!-- Massage Cards -->
+		<div class="mx-auto mt-12 max-w-6xl">
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+				{massageData.map((massage) => (
+					<MassageCard 
+						title={massage.title}
+						description={massage.description}
+						price={massage.price}
+						image={massage.image}
+						slug={massage.slug}
+					/>
+				))}
+			</div>
+		</div>
 	</div>
 
 	<TestimonialQuote />

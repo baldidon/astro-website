@@ -1,0 +1,29 @@
+---
+interface Props {
+	title: string;
+	image?: string; // optional logo image
+	logoName?: string; // fallback text when no image
+}
+
+const { title, image, logoName } = Astro.props as Props;
+---
+
+<div class="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg border border-base-200 min-w-[200px]">
+	<!-- Logo/Image -->
+	<div class="w-20 h-20 mb-4 flex items-center justify-center">
+		{image ? (
+			<img 
+				src={image} 
+				alt={`${title} logo`} 
+				class="w-full h-full object-contain"
+			/>
+		) : (
+			<div class="w-full h-full bg-base-200 rounded-lg flex items-center justify-center">
+				<span class="text-xs text-base-600 text-center px-2">{logoName || title}</span>
+			</div>
+		)}
+	</div>
+	
+	<!-- Title -->
+	<h3 class="text-sm font-medium text-base-900 text-center">{title}</h3>
+</div>

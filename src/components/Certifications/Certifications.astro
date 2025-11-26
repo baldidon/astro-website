@@ -1,0 +1,85 @@
+---
+import CertificationCard from "@components/CertificationCard/CertificationCard.astro";
+
+const certifications = [
+	{
+		title: "Certificazione Massaggio Sportivo",
+		logoName: "Federazione Sportiva"
+	},
+	{
+		title: "Diploma Operatore Olistico",
+		logoName: "Scuola Olistica"
+	},
+	{
+		title: "Certificazione Massaggio Decontratturante",
+		logoName: "Ente Certificatore"
+	},
+	{
+		title: "Attestato Linfodrenaggio",
+		logoName: "Istituto Benessere"
+	},
+	{
+		title: "Certificazione Massaggio Californiano",
+		logoName: "Accademia Massage"
+	},
+	{
+		title: "Diploma Riflessologia Plantare",
+		logoName: "Scuola Riflessologia"
+	},
+	{
+		title: "Certificazione Massaggio Hawaiano",
+		logoName: "Centro Benessere"
+	},
+	{
+		title: "Attestato Massaggio Stone Therapy",
+		logoName: "Istituto Terapie"
+	}
+];
+---
+
+<!-- Infinite Carousel Section -->
+<section class="bg-primary-50 py-12 overflow-hidden">
+	<div class="relative">
+		<!-- Title -->
+		<div class="text-center mb-8">
+			<h2 class="h3 text-pretty uppercase">Le Nostre Certificazioni</h2>
+			<p class="text-base-700 mt-2">Formazione continua e specializzazioni riconosciute</p>
+		</div>
+		
+<!-- Infinite Carousel Container -->
+	<div class="relative">
+		<!-- Single Row - Left to Right -->
+		<div class="flex animate-scroll-left">
+			{[...certifications, ...certifications].map((cert, index) => (
+				<div class="flex-shrink-0 px-4">
+					<CertificationCard 
+						title={cert.title}
+						logoName={cert.logoName}
+					/>
+				</div>
+			))}
+		</div>
+	</div>
+	</div>
+</section>
+
+<style>
+	@keyframes scroll-left {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+	
+	.animate-scroll-left {
+		animation: scroll-left 30s linear infinite;
+	}
+	
+	@media (prefers-reduced-motion: reduce) {
+		.animate-scroll-left {
+			animation: none;
+		}
+	}
+</style>

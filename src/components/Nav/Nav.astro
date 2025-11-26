@@ -82,8 +82,7 @@ let siteLogoType: "white" | "black" = currentUrl.endsWith("portfolio") ? "black"
 
 	function scrollHandler() {
 		const shouldEmitLogoChangedEvent = !currentURL.endsWith("portfolio");
-		console.log("shouldEmitLogoChangedEvent", shouldEmitLogoChangedEvent);
-
+		
 		if (navbar) {
 			if (window.scrollY > 50) {
 				// if we have scrolled down the page a bit, adjust colors

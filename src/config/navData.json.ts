@@ -22,18 +22,22 @@ const navConfig: navItem[] = [
 		text: "Massaggi",
 		dropdown: [
 			{
-				text: "Massaggi Olistici",
-				link: "/massaggi/massaggio-olistico",
+				text: "Massaggio Olistico",
+				link: "/massage/massaggio-olistico",
 			},
 			{
-				text: "Massaggi Tecnici",
-				link: "/massaggi/massaggio-tecnico",
+				text: "Massaggio Tecnico",
+				link: "/massage/massaggio-tecnico",
+			},
+			{
+				text: "Massaggio Sportivo",
+				link: "/massage/massaggio-sportivo",
 			},
 		],
 	},
 	{
-		text: "Prezzi",
-		link: "/#pricing",
+		text: "Promozioni",
+		link: "/#promotions",
 	},
 	{
 		text: "Contatti",

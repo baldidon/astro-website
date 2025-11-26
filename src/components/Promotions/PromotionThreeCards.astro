@@ -52,12 +52,12 @@ const pricingData: pricingItem[] = [
 ];
 ---
 
-<section id="pricing" class="bg-primary-100 w-full scroll-mt-10 px-4 py-8 md:py-12">
+<section id="promotions" class="bg-primary-100 w-full scroll-mt-10 px-4 py-8 md:py-12">
 	<div class="mx-auto max-w-6xl text-center">
 		<h2 class="h2 text-pretty uppercase">Le nostre promozioni</h2>
 	</div>
 
-	<!-- works for 3 pricing plans; on mobile enable horizontal snap scroll -->
+	<!-- works for 3 promotions plans; on mobile enable horizontal snap scroll -->
 	<div class="mx-auto flex gap-4 overflow-x-auto snap-x snap-mandatory pt-8 sm:max-w-6xl md:pt-12 lg:grid lg:grid-cols-3 lg:gap-12 lg:overflow-visible relative -mx-4 px-4 scrollbar-hide"
 		style="-webkit-overflow-scrolling: touch;"
 	>
@@ -111,6 +111,69 @@ const pricingData: pricingItem[] = [
 	<div class="mt-3 flex items-center justify-center gap-2 text-sm text-base-700 lg:hidden">
 		<Icon name="tabler:arrow-narrow-right" class="h-4 w-4 animate-bounce-x-slow motion-reduce:animate-none" />
 		<span>Scorri per vedere altre promozioni</span>
+	</div>
+
+	<!-- Gift Card Section -->
+	<div class="mx-auto mt-16 max-w-6xl">
+		<div class="bg-base-100 rounded-lg p-8 text-center">
+			<h2 class="h2 text-pretty uppercase mb-8">Gift Card - L'idea regalo perfetta</h2>
+			
+			<div class="mx-auto max-w-2xl">
+				<div class="md:hidden">
+					<div class="relative h-48 w-full overflow-hidden rounded-lg">
+						<Image
+							src={image1}
+							alt="Gift Card"
+							width={400}
+							height={300}
+							class="h-full w-full object-cover"
+						/>
+						<div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent animate-pulse"></div>
+					</div>
+				</div>
+				<div class="hidden md:grid gap-4 md:grid-cols-3">
+					<div class="h-32 w-full overflow-hidden rounded-lg">
+						<Image
+							src={image1}
+							alt="Gift Card"
+							width={400}
+							height={300}
+							class="h-full w-full object-cover"
+						/>
+					</div>
+					<div class="h-32 w-full overflow-hidden rounded-lg">
+						<Image
+							src={image2}
+							alt="Gift Card"
+							width={400}
+							height={300}
+							class="h-full w-full object-cover"
+						/>
+					</div>
+					<div class="h-32 w-full overflow-hidden rounded-lg">
+						<Image
+							src={image3}
+							alt="Gift Card"
+							width={400}
+							height={300}
+							class="h-full w-full object-cover"
+						/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="mt-8 max-w-2xl mx-auto">
+				<p class="text-lg text-base-700 mb-6">
+					Regala un'esperienza di benessere unica. Le nostre Gift Card sono la soluzione perfetta per sorprendere chi ami con un momento di puro relax e rigenerazione.
+				</p>
+				<p class="text-base-700 mb-8">
+					Scegli il valore che preferisci e personalizza la tua Gift Card secondo le esigenze del destinatario.
+				</p>
+				<Button href="/#contact" variant="primary" class="px-8">
+					Richiedi la tua Gift Card
+				</Button>
+			</div>
+		</div>
 	</div>
 
 	<style>

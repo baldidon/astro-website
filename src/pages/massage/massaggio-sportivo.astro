@@ -1,0 +1,160 @@
+---
+import { Image } from "astro:assets";
+
+// layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// components
+import Button from "@components/Button/Button.astro";
+
+// placeholder images
+const placeholderImage = "data:image/svg+xml,%3Csvg width='400' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='300' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='Arial' font-size='16'%3EMassaggio Sportivo%3C/text%3E%3C/svg%3E";
+
+const massageData = {
+	title: "Massaggio Sportivo",
+	hero: {
+		title: "Massaggio Sportivo",
+		subtitle: "Preparazione atletica e recupero post-allenamento",
+		description: "Tecnica specifica per sportivi amatoriali e professionisti. Ottimizza la performance e accelera i tempi di recupero."
+	},
+	benefits: [
+		"Preparazione muscolare all'attività fisica",
+		"Recupero rapido post-allenamento",
+		"Prevenzione degli infortuni",
+		"Miglioramento della performance",
+		"Aumento della mobilità articolare"
+	],
+	techniques: [
+		{
+			name: "Massaggio Pre-Gara",
+			description: "Trattamento energizzante che prepara i muscoli all'attività fisica, migliorando la circolazione e l'elasticità.",
+			prices: [
+				{ duration: "20 minuti", price: "€30" },
+				{ duration: "30 minuti", price: "€40" }
+			]
+		},
+		{
+			name: "Massaggio Post-Gara",
+			description: "Tecnica defaticante che aiuta a eliminare le tossine e ridurre l'indolenzimento muscolare dopo l'attività sportiva.",
+			prices: [
+				{ duration: "30 minuti", price: "€35" },
+				{ duration: "45 minuti", price: "€50" }
+			]
+		},
+		{
+			name: "Recupero Muscolare Profondo",
+			description: "Trattamento intensivo per il recupero da sforzi elevati e prevenzione di infortuni da sovraccarico.",
+			prices: [
+				{ duration: "45 minuti", price: "€50" },
+				{ duration: "60 minuti", price: "€65" }
+			]
+		},
+		{
+			name: "Trattamento Contratture Specifiche",
+			description: "Lavoro mirato sulla risoluzione di contratture e tensioni muscolari localizzate tipiche dello sport.",
+			prices: [
+				{ duration: "20 minuti", price: "€25" },
+				{ duration: "30 minuti", price: "€35" }
+			]
+		},
+		{
+			name: "Linfodrenaggio Sportivo",
+			description: "Tecnica specifica per accelerare il recupero e ridurre il gonfiore dopo sforzi intensi o microtraumi.",
+			prices: [
+				{ duration: "40 minuti", price: "€45" },
+				{ duration: "50 minuti", price: "€55" }
+			]
+		}
+	],
+	images: [placeholderImage, placeholderImage, placeholderImage]
+};
+---
+
+<BaseLayout title="Massaggio Sportivo" description="Preparazione atletica e recupero post-allenamento per sportivi.">
+	<!-- Hero Section -->
+	<section class="relative h-[40svh] w-full overflow-hidden md:h-[60svh]">
+		<div class="absolute inset-0 z-10 bg-black/30"></div>
+		<div class="absolute inset-0 bg-primary-200"></div>
+		
+		<div class="relative z-20 flex h-full w-full items-center justify-center">
+			<div class="mx-auto max-w-4xl px-4 text-center">
+				<h1 class="h1 text-white mb-4">{massageData.hero.title}</h1>
+				<h2 class="text-xl font-semibold text-white/90 mb-6">{massageData.hero.subtitle}</h2>
+				<p class="text-lg text-white/80 mb-8 max-w-2xl mx-auto">{massageData.hero.description}</p>
+				
+				<div class="flex items-center justify-center gap-6">
+					<span class="text-lg text-white/80">Prezzi a partire da €35</span>
+					<Button href="/#contact" variant="primary">
+						Prenota ora
+					</Button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Main Content -->
+	<div class="site-container mx-auto max-w-6xl py-16">
+
+		<!-- Benefits Section -->
+		<div class="mb-16">
+			<h2 class="h3 text-center mb-8">Benefici del Massaggio Sportivo</h2>
+			<div class="grid gap-4 md:grid-cols-2">
+				{massageData.benefits.map((benefit) => (
+					<div class="flex items-start gap-3">
+						<div class="mt-1 h-2 w-2 rounded-full bg-primary-500 flex-shrink-0"></div>
+						<p class="text-base-700">{benefit}</p>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- Techniques Section -->
+		<div class="mb-16">
+			<h2 class="h3 text-center mb-8">Tecniche e Prezzi</h2>
+			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{massageData.techniques.map((technique) => (
+					<div class="bg-base-100 rounded-lg p-6 border border-base-200">
+						<h3 class="text-lg font-semibold text-base-900 mb-2">{technique.name}</h3>
+						<p class="text-base-700 mb-4">{technique.description}</p>
+						<div class="space-y-2">
+							{technique.prices.map((priceOption) => (
+								<div class="flex items-center justify-between py-2 border-b border-base-200 last:border-0">
+									<span class="text-sm text-base-600">{priceOption.duration}</span>
+									<span class="text-lg font-bold text-primary-600">{priceOption.price}</span>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- Gallery Section -->
+		<div class="mb-16">
+			<h2 class="h3 text-center mb-8">Galleria</h2>
+			<div class="grid gap-4 md:grid-cols-3">
+				{[1, 2, 3].map((index) => (
+					<div class="relative h-64 overflow-hidden rounded-lg bg-base-200 flex items-center justify-center">
+						<div class="text-center">
+							<div class="w-16 h-16 bg-base-300 rounded-lg mx-auto mb-2"></div>
+							<p class="text-base-600">Immagine {index}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+		</div>
+
+		<!-- CTA Section -->
+		<section class="bg-primary-100 py-16">
+			<div class="mx-auto max-w-4xl text-center">
+				<h2 class="h3 mb-4">Pronto a provare il Massaggio Sportivo?</h2>
+				<p class="text-base-700 mb-8">
+					Contattaci per prenotare il tuo trattamento personalizzato e migliorare la tua performance sportiva.
+				</p>
+				<Button href="/#contact" variant="primary" size="lg">
+					Prenota il tuo massaggio
+				</Button>
+			</div>
+		</section>
+</BaseLayout>
