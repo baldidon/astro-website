@@ -1,157 +1,75 @@
 ---
-import { Image } from "astro:assets";
-
-// layout
 import BaseLayout from "@layouts/BaseLayout.astro";
+import MassagePageTemplate from "@components/MassagePageTemplate/MassagePageTemplate.astro";
 
-// components
-import Button from "@components/Button/Button.astro";
-
-// placeholder images
-const placeholderImage = "data:image/svg+xml,%3Csvg width='400' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='300' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='Arial' font-size='16'%3EMassaggio Tecnico%3C/text%3E%3C/svg%3E";
+const placeholderImage =
+	"data:image/svg+xml,%3Csvg width='400' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='300' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='Arial' font-size='16'%3EMassaggio Tecnico%3C/text%3E%3C/svg%3E";
 
 const massageData = {
 	title: "Massaggio Tecnico",
 	hero: {
 		title: "Massaggio Tecnico",
 		subtitle: "Trattamento mirato per risolvere tensioni muscolari e problemi specifici",
-		description: "Ideale per atleti e chi soffre di dolori cronici. Un approccio professionale per risolvere problematiche muscolari profonde."
+		description:
+			"Ideale per atleti e chi soffre di dolori cronici. Un approccio professionale per risolvere problematiche muscolari profonde.",
 	},
-	price: "€60",
-	duration: "60 minuti",
+	// price: "€60",
+	// duration: "60 minuti",
 	benefits: [
 		"Rilascio tensioni muscolari profonde",
 		"Miglioramento della circolazione sanguigna",
 		"Riduzione del dolore cronico",
 		"Recupero post-infortunio",
-		"Aumento della flessibilità"
+		"Aumento della flessibilità",
 	],
 	techniques: [
 		{
-			name: "Massaggio Profondo dei Tessuti",
-			description: "Tecnica che lavora sugli strati più profondi della muscolatura per rilasciare contratture croniche e aderenze.",
+			name: "Massaggio Tecnico Sportivo",
+			description:
+				"Tecnica che lavora sugli strati più profondi della muscolatura per rilasciare contratture croniche e aderenze.",
 			prices: [
-				{ duration: "45 minuti", price: "€45" },
-				{ duration: "60 minuti", price: "€60" }
-			]
+				{ duration: "40 minuti", price: "€35" },
+				{ duration: "60 minuti", price: "€60" },
+			],
 		},
 		{
-			name: "Rilascio Miofasciale",
-			description: "Trattamento specifico che agisce sulla fascia muscolare per ripristinare la mobilità e ridurre le restrizioni.",
-			prices: [
-				{ duration: "30 minuti", price: "€35" },
-				{ duration: "45 minuti", price: "€50" }
-			]
+			name: "Massaggio Decontratturante",
+			description:
+				"Trattamento specifico che agisce sulla fascia muscolare per ripristinare la mobilità e ridurre le restrizioni.",
+			prices: [{ duration: "60 minuti", price: "€50" }],
 		},
 		{
-			name: "Trattamento Punti Trigger",
-			description: "Tecnica focalizzata sulla deattivazione dei punti di tensione che causano dolore riferito in altre zone del corpo.",
-			prices: [
-				{ duration: "20 minuti", price: "€30" },
-				{ duration: "30 minuti", price: "€40" }
-			]
+			name: "Massaggio Anticellulite",
+			description:
+				"Tecnica focalizzata a riattivare il microcircolo e favorire il drenaggio dei liquidi in eccesso.",
+			prices: [{ duration: "60 minuti", price: "€50" }],
 		},
 		{
-			name: "Stretching Attivo e Passivo",
-			description: "Combinazione di tecniche di allungamento per migliorare la flessibilità e prevenire infortuni.",
-			prices: [
-				{ duration: "20 minuti", price: "€25" },
-				{ duration: "30 minuti", price: "€35" }
-			]
-		}
+			name: "Massaggio Linfodrenaggio Vodder",
+			description:
+				"Trattamento manuale delicate e ritmato, studiato per stimolare la circolazione linfatica e favorire l'eliminazione naturale dei liquidi in eccesso e delle scorie metaboliche.",
+			prices: [{ duration: "60 minuti", price: "€50" }],
+		},
+		{
+			name: "Coppettazione Tecnico-Sportiva",
+			description:
+				"Trattamento specifico per l'atleta e il recupero muscolare. Utilizza l'applicazione di ventose statiche o mobili per creare una decompressione dei tessuti, favorendo il flusso sanguigno e l'ossigenazione muscolare.",
+			prices: [{ duration: "60 minuti", price: "€50" }],
+		},
+		{
+			name: "Taping Kinesiologico Muscolare",
+			description:
+				"Applicazione di nastri adesivi elastici progettati per accompagnare il movimento muscolare senza restringere l'articolazione. Attraverso una sollecitazione della cute, favorisce la microcircolazione, riduce l'infiammazione e allevia il dolore.",
+			prices: [{ duration: "60 minuti", price: "€20" }],
+		},
 	],
-	images: [placeholderImage, placeholderImage, placeholderImage]
+	images: [placeholderImage, placeholderImage, placeholderImage],
 };
 ---
 
-<BaseLayout title="Massaggio Tecnico" description="Trattamento mirato per risolvere tensioni muscolari e problemi specifici.">
-	<!-- Hero Section -->
-	<section class="relative h-[40svh] w-full overflow-hidden md:h-[60svh]">
-		<div class="absolute inset-0 z-10 bg-black/30"></div>
-		<div class="absolute inset-0 bg-primary-200"></div>
-		
-		<div class="relative z-20 flex h-full w-full items-center justify-center">
-			<div class="mx-auto max-w-4xl px-4 text-center">
-				<h1 class="h1 text-white mb-4">{massageData.hero.title}</h1>
-				<h2 class="text-xl font-semibold text-white/90 mb-6">{massageData.hero.subtitle}</h2>
-				<p class="text-lg text-white/80 mb-8 max-w-2xl mx-auto">{massageData.hero.description}</p>
-				
-				<div class="flex items-center justify-center gap-6">
-					<div>
-						<span class="text-3xl font-bold text-white">{massageData.price}</span>
-						<span class="text-white/80"> / {massageData.duration}</span>
-					</div>
-					<Button href="/#contact" variant="primary">
-						Prenota ora
-					</Button>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Main Content -->
-	<div class="site-container mx-auto max-w-6xl py-16">
-
-		<!-- Benefits Section -->
-		<div class="mb-16">
-			<h2 class="h3 text-center mb-8">Benefici del Massaggio Tecnico</h2>
-			<div class="grid gap-4 md:grid-cols-2">
-				{massageData.benefits.map((benefit) => (
-					<div class="flex items-start gap-3">
-						<div class="mt-1 h-2 w-2 rounded-full bg-primary-500 flex-shrink-0"></div>
-						<p class="text-base-700">{benefit}</p>
-					</div>
-				))}
-			</div>
-		</div>
-
-		<!-- Techniques Section -->
-		<div class="mb-16">
-			<h2 class="h3 text-center mb-8">Tecniche e Prezzi</h2>
-			<div class="grid gap-6 md:grid-cols-2">
-				{massageData.techniques.map((technique) => (
-					<div class="bg-base-100 rounded-lg p-6 border border-base-200">
-						<h3 class="text-lg font-semibold text-base-900 mb-2">{technique.name}</h3>
-						<p class="text-base-700 mb-4">{technique.description}</p>
-						<div class="space-y-2">
-							{technique.prices.map((priceOption) => (
-								<div class="flex items-center justify-between py-2 border-b border-base-200 last:border-0">
-									<span class="text-sm text-base-600">{priceOption.duration}</span>
-									<span class="text-lg font-bold text-primary-600">{priceOption.price}</span>
-								</div>
-							))}
-						</div>
-					</div>
-				))}
-			</div>
-		</div>
-
-		<!-- Gallery Section -->
-		<div class="mb-16">
-			<h2 class="h3 text-center mb-8">Galleria</h2>
-			<div class="grid gap-4 md:grid-cols-3">
-				{[1, 2, 3].map((index) => (
-					<div class="relative h-64 overflow-hidden rounded-lg bg-base-200 flex items-center justify-center">
-						<div class="text-center">
-							<div class="w-16 h-16 bg-base-300 rounded-lg mx-auto mb-2"></div>
-							<p class="text-base-600">Immagine {index}</p>
-						</div>
-					</div>
-				))}
-			</div>
-		</div>
-		</div>
-
-		<!-- CTA Section -->
-		<section class="bg-primary-100 py-16">
-			<div class="mx-auto max-w-4xl text-center">
-				<h2 class="h3 mb-4">Pronto a provare il Massaggio Tecnico?</h2>
-				<p class="text-base-700 mb-8">
-					Contattaci per prenotare il tuo trattamento personalizzato e iniziare il tuo percorso verso il benessere.
-				</p>
-				<Button href="/#contact" variant="primary" size="lg">
-					Prenota il tuo massaggio
-				</Button>
-			</div>
-		</section>
+<BaseLayout
+	title="Massaggio Tecnico"
+	description="Trattamento mirato per risolvere tensioni muscolari e problemi specifici."
+>
+	<MassagePageTemplate massageData={massageData} />
 </BaseLayout>

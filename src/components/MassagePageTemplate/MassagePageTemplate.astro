@@ -1,0 +1,132 @@
+---
+import Button from "@components/Button/Button.astro";
+
+interface MassageData {
+	title: string;
+	hero: {
+		title: string;
+		subtitle: string;
+		description: string;
+	};
+	price?: string;
+	duration?: string;
+	startingPrice?: string;
+	benefits: string[];
+	techniques: Array<{
+		name: string;
+		description: string;
+		prices: Array<{
+			duration: string;
+			price: string;
+		}>;
+	}>;
+	images: string[];
+	techniquesGridCols?: "2" | "3";
+}
+
+interface Props {
+	massageData: MassageData;
+}
+
+const { massageData } = Astro.props as Props;
+const techniquesGridCols = massageData.techniquesGridCols || "2";
+---
+
+<section class="relative h-[55svh] w-full overflow-hidden md:h-[60svh]">
+	<div class="absolute inset-0 z-10 bg-black/30"></div>
+	<div class="bg-primary-200 absolute inset-0"></div>
+
+	<div class="relative z-20 flex h-full w-full items-center justify-center">
+		<div class="mx-auto max-w-4xl px-4 pt-20 text-center md:pt-0">
+			<h1 class="h1 mb-4 text-white">{massageData.hero.title}</h1>
+			<h2 class="mb-6 text-xl font-semibold text-white/90">{massageData.hero.subtitle}</h2>
+			<p class="mx-auto mb-8 max-w-2xl text-lg text-white/80">{massageData.hero.description}</p>
+
+			<div class="flex items-center justify-center gap-6">
+				{
+					massageData.startingPrice ? (
+						<span class="text-lg text-white/80">
+							Prezzi a partire da {massageData.startingPrice}
+						</span>
+					) : massageData.price && massageData.duration ? (
+						<div>
+							<span class="text-3xl font-bold text-white">{massageData.price}</span>
+							<span class="text-white/80"> / {massageData.duration}</span>
+						</div>
+					) : null
+				}
+				<Button href="/#contact" variant="primary"> Prenota ora </Button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="site-container mx-auto max-w-6xl py-16">
+	<div class="mb-16">
+		<h2 class="h3 mb-8 text-center">Benefici del {massageData.title}</h2>
+		<div class="grid gap-4 md:grid-cols-2">
+			{
+				massageData.benefits.map((benefit) => (
+					<div class="flex items-start gap-3">
+						<div class="bg-primary-500 mt-1 h-2 w-2 flex-shrink-0 rounded-full" />
+						<p class="text-base-700">{benefit}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+
+	<div class="mb-16">
+		<h2 class="h3 mb-8 text-center">Tecniche e Prezzi</h2>
+		<div
+			class:list={[
+				"grid gap-6",
+				techniquesGridCols === "3" ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2",
+			]}
+		>
+			{
+				massageData.techniques.map((technique) => (
+					<div class="bg-base-100 border-base-200 rounded-lg border p-6">
+						<h3 class="text-base-900 mb-2 text-lg font-semibold">{technique.name}</h3>
+						<p class="text-base-700 mb-4">{technique.description}</p>
+						<div class="space-y-2">
+							{technique.prices.map((priceOption) => (
+								<div class="border-base-200 flex items-center justify-between border-b py-2 last:border-0">
+									<span class="text-base-600 text-sm">{priceOption.duration}</span>
+									<span class="text-primary-600 text-lg font-bold">{priceOption.price}</span>
+								</div>
+							))}
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+
+	<div class="mb-16">
+		<h2 class="h3 mb-8 text-center">Galleria</h2>
+		<div class="grid gap-4 md:grid-cols-3">
+			{
+				[1, 2, 3].map((index) => (
+					<div class="bg-base-200 relative flex h-64 items-center justify-center overflow-hidden rounded-lg">
+						<div class="text-center">
+							<div class="bg-base-300 mx-auto mb-2 h-16 w-16 rounded-lg" />
+							<p class="text-base-600">Immagine {index}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</div>
+
+<section class="bg-primary-100 py-16">
+	<div class="mx-auto max-w-4xl text-center">
+		<h2 class="h3 mb-4">Pronto a provare il {massageData.title}?</h2>
+		<p class="text-base-700 mb-8">
+			Contattaci per prenotare il tuo trattamento personalizzato e iniziare il tuo percorso verso il
+			benessere.
+		</p>
+		<Button href="/#contact" variant="primary" size="lg"> Prenota il tuo massaggio </Button>
+	</div>
+</section>

@@ -1,5 +1,5 @@
 ---
-title: Trattamenti olistici
+title: Massaggio olistico
 description: Tecniche per riequilibrare corpo e mente, ridurre lo stress e migliorare.
 heroImage: ./trattamento_olistico.jpg
 # date: "Apr 15 2024"
@@ -12,7 +12,7 @@ images:
     # [./couple-9-3.jpg],
     # [./cake-min-3.jpg, ./dress-min-3.jpg],
   ]
-order: 3
+order: 2
 ---
 
 I trattamenti olistici rappresentano un approccio completo al benessere della persona, considerando l'individuo nella sua totalità: corpo, mente e spirito. Queste tecniche, che includono massaggi, meditazione, aromaterapia e altre pratiche naturali, mirano a ristabilire l'equilibrio energetico e promuovere l'autoguarigione.

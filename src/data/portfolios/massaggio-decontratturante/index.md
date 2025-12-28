@@ -12,7 +12,7 @@ images:
     # [./couple-9-2.jpg],
     # [./cake-min-2.jpg, ./dress-min-2.jpg],
   ]
-order: 2
+order: 3
 ---
 
 Il massaggio decontratturante è un trattamento terapeutico mirato che lavora in profondità sui tessuti muscolari per sciogliere contratture e nodi. Questa tecnica utilizza pressioni e manipolazioni specifiche per ridurre la tensione accumulata, migliorare la circolazione sanguigna e ripristinare la corretta funzionalità muscolare.

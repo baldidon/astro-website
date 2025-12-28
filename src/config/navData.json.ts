@@ -29,10 +29,6 @@ const navConfig: navItem[] = [
 				text: "Massaggio Tecnico",
 				link: "/massage/massaggio-tecnico",
 			},
-			{
-				text: "Massaggio Sportivo",
-				link: "/massage/massaggio-sportivo",
-			},
 		],
 	},
 	{

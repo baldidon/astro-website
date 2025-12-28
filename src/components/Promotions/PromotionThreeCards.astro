@@ -12,9 +12,11 @@ import Button from "@components/Button/Button.astro";
 interface pricingItem {
 	name: string; // plan name
 	featured?: boolean; // if true, will be highlighted or otherwise featured
-	quantity: number; // optional, can be used for stock or availability
+	quantity: number; // number of massages included
 	saleQuantity?: number;
-	totalBody?: boolean; // optional, if true, will show total body price
+	totalBody?: boolean; // if true, massages are 60 min total body, if false or undefined, 40 min partial
+	partialPrice: number; // price for 40 min partial massages
+	totalBodyPrice: number; // price for 60 min total body massages
 	features: string[]; // list of features
 	image: ImageMetadata; // imported image
 }
@@ -30,7 +32,9 @@ const pricingData: pricingItem[] = [
 		featured: false,
 		quantity: 3,
 		saleQuantity: 5,
-		features: ["Tutti i massaggi presenti in catalogo", "Scadenza 1 mese"],
+		partialPrice: 95,
+		totalBodyPrice: 135,
+		features: ["Tutti i massaggi presenti in catalogo", "Scadenza 1 mese", "3 Massaggi"],
 		image: image1,
 	},
 	{
@@ -38,15 +42,18 @@ const pricingData: pricingItem[] = [
 		featured: true,
 		quantity: 5,
 		saleQuantity: 10,
-		features: ["Tutti i massaggi presenti in catalogo", "Scadenza 2 mesi"],
+		partialPrice: 150,
+		totalBodyPrice: 210,
+		features: ["Tutti i massaggi presenti in catalogo", "Scadenza 2 mesi", "5 Massaggi"],
 		image: image2,
 	},
 	{
 		name: "FIDELITY PRO",
 		featured: false,
 		quantity: 10,
-		totalBody: true,
-		features: ["Tutti i massaggi presenti in catalogo", "Scadenza 3 mesi"],
+		partialPrice: 280,
+		totalBodyPrice: 400,
+		features: ["Tutti i massaggi presenti in catalogo", "Scadenza 3 mesi", "10 Massaggi"],
 		image: image3,
 	},
 ];
@@ -58,13 +65,14 @@ const pricingData: pricingItem[] = [
 	</div>
 
 	<!-- works for 3 promotions plans; on mobile enable horizontal snap scroll -->
-	<div class="mx-auto flex gap-4 overflow-x-auto snap-x snap-mandatory pt-8 sm:max-w-6xl md:pt-12 lg:grid lg:grid-cols-3 lg:gap-12 lg:overflow-visible relative -mx-4 px-4 scrollbar-hide"
+	<div
+		class="scrollbar-hide relative -mx-4 mx-auto flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pt-8 sm:max-w-6xl md:pt-12 lg:grid lg:grid-cols-3 lg:gap-12 lg:overflow-visible"
 		style="-webkit-overflow-scrolling: touch;"
 	>
 		{
 			pricingData.map((plan) => (
 				<div
-					class="flex w-full flex-col shrink-0 snap-start min-w-[85%] sm:min-w-[70%] md:min-w-[60%] lg:min-w-0 lg:shrink"
+					class="flex w-full min-w-[85%] shrink-0 snap-start flex-col sm:min-w-[70%] md:min-w-[60%] lg:min-w-0 lg:shrink"
 					class:list={[
 						{
 							"bg-primary-200": plan.featured === true,
@@ -92,15 +100,25 @@ const pricingData: pricingItem[] = [
 								))}
 							</ul>
 						</div>
-						<p class="font-decorative text-base-800 mt-6 flex justify-center text-center text-[5rem] leading-none">
-							{plan.totalBody ? (
-								<span class="text-[1.5rem] font-bold uppercase">Total body in omaggio</span>
-							) : (
-								<span class="text-[1.5rem] font-bold uppercase">
-									{plan.saleQuantity}% di sconto
-								</span>
-							)}
-						</p>
+						<div class="mt-6 text-center">
+							<!-- <p class="text-base-700 mb-2 text-sm font-medium uppercase">
+								{plan.quantity} massaggi
+							</p> -->
+							<div class="flex flex-col gap-3">
+								<div>
+									<p class="text-base-600 text-xs uppercase">40 min (Partial Body)</p>
+									<p class="font-decorative text-base-800 text-2xl font-bold">
+										€{plan.partialPrice}
+									</p>
+								</div>
+								<div>
+									<p class="text-base-600 text-xs uppercase">60 min (Total Body)</p>
+									<p class="font-decorative text-base-800 text-2xl font-bold">
+										€{plan.totalBodyPrice}
+									</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			))
@@ -108,16 +126,19 @@ const pricingData: pricingItem[] = [
 	</div>
 
 	<!-- mobile-only hint to indicate horizontal scrolling -->
-	<div class="mt-3 flex items-center justify-center gap-2 text-sm text-base-700 lg:hidden">
-		<Icon name="tabler:arrow-narrow-right" class="h-4 w-4 animate-bounce-x-slow motion-reduce:animate-none" />
+	<div class="text-base-700 mt-3 flex items-center justify-center gap-2 text-sm lg:hidden">
+		<Icon
+			name="tabler:arrow-narrow-right"
+			class="animate-bounce-x-slow h-4 w-4 motion-reduce:animate-none"
+		/>
 		<span>Scorri per vedere altre promozioni</span>
 	</div>
 
 	<!-- Gift Card Section -->
 	<div class="mx-auto mt-16 max-w-6xl">
 		<div class="bg-base-100 rounded-lg p-8 text-center">
-			<h2 class="h2 text-pretty uppercase mb-8">Gift Card - L'idea regalo perfetta</h2>
-			
+			<h2 class="h2 mb-8 text-pretty uppercase">Gift Card - L'idea regalo perfetta</h2>
+
 			<div class="mx-auto max-w-2xl">
 				<div class="md:hidden">
 					<div class="relative h-48 w-full overflow-hidden rounded-lg">
@@ -128,10 +149,13 @@ const pricingData: pricingItem[] = [
 							height={300}
 							class="h-full w-full object-cover"
 						/>
-						<div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent animate-pulse"></div>
+						<div
+							class="absolute inset-0 animate-pulse bg-gradient-to-br from-white/20 to-transparent"
+						>
+						</div>
 					</div>
 				</div>
-				<div class="hidden md:grid gap-4 md:grid-cols-3">
+				<div class="hidden gap-4 md:grid md:grid-cols-3">
 					<div class="h-32 w-full overflow-hidden rounded-lg">
 						<Image
 							src={image1}
@@ -161,24 +185,25 @@ const pricingData: pricingItem[] = [
 					</div>
 				</div>
 			</div>
-			
-			<div class="mt-8 max-w-2xl mx-auto">
-				<p class="text-lg text-base-700 mb-6">
-					Regala un'esperienza di benessere unica. Le nostre Gift Card sono la soluzione perfetta per sorprendere chi ami con un momento di puro relax e rigenerazione.
+
+			<div class="mx-auto mt-8 max-w-2xl">
+				<p class="text-base-700 mb-6 text-lg">
+					Regala un'esperienza di benessere unica. Le nostre Gift Card sono la soluzione perfetta
+					per sorprendere chi ami con un momento di puro relax e rigenerazione.
 				</p>
 				<p class="text-base-700 mb-8">
-					Scegli il valore che preferisci e personalizza la tua Gift Card secondo le esigenze del destinatario.
+					Scegli il valore che preferisci e personalizza la tua Gift Card secondo le esigenze del
+					destinatario.
 				</p>
-				<Button href="/#contact" variant="primary" class="px-8">
-					Richiedi la tua Gift Card
-				</Button>
+				<Button href="/#contact" variant="primary" class="px-8"> Richiedi la tua Gift Card </Button>
 			</div>
 		</div>
 	</div>
 
 	<style>
 		@keyframes bounce-x-slow {
-			0%, 100% {
+			0%,
+			100% {
 				transform: translateX(0);
 			}
 			50% {

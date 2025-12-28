@@ -20,7 +20,7 @@ const siteData: SiteDataProps = {
 	// Your website's title and description (meta fields)
 	title: "+Massage",
 	description:
-		"Get your next website up and running quickly with our beautiful website theme designed using Astro and Tailwind CSS. Perfect for freelancers, developers, startups, and personal use.",
+		"L'arte del benessere e della Performance",
 	useViewTransitions: true,
 	// Your information!
 	author: {
